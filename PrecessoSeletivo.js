@@ -1,28 +1,35 @@
-1- Soma será 91.
-2- function fibonacci(n) {
-    const fibSequence = [0, 1];
-    while (fibSequence[fibSequence.length - 1] < n) {
-        const nextFib = fibSequence[fibSequence.length - 1] + fibSequence[fibSequence.length - 2];
-        fibSequence.push(nextFib);
+//1º Soma será 91.
+
+//2º
+function fibonacci(n) {
+    const sequencia = [0, 1]; // Inicia a sequência com 0 e 1
+
+    // Gera a sequência de Fibonacci até o número n
+    while (true) {
+        const proximo = sequencia[sequencia.length - 1] + sequencia[sequencia.length - 2];
+        if (proximo > n) break; // Para se o próximo número for maior que n
+        sequencia.push(proximo);
     }
-    return fibSequence;
+    
+    return sequencia;
 }
 
-function pertenceFibonacci(numero) {
-    const fibSequence = fibonacci(numero);
-    if (fibSequence.includes(numero)) {
-        return `O número ${numero} pertence à sequência de Fibonacci.`;
-    } else {
-        return `O número ${numero} não pertence à sequência de Fibonacci.`;
-    }
+function pertenceAFibonacci(numero) {
+    const sequencia = fibonacci(numero);
+    return sequencia.includes(numero);
 }
 
-// Entrada do usuário
-const numeroInformado = parseInt(prompt("Informe um número: "), 10);
-const resultado = pertenceFibonacci(numeroInformado);
-alert(resultado);
+// Número fictício para testar
+const numeroFicticio = 55; // Você pode alterar esse valor
+if (pertenceAFibonacci(numeroFicticio)) {
+    console.log(`O número ${numeroFicticio} pertence à sequência de Fibonacci.`);
+} else {
+    console.log(`O número ${numeroFicticio} não pertence à sequência de Fibonacci.`);
+}
 
-3- const faturamentoJSON = `{
+
+//3º
+const faturamentoJSON = `{
             "faturamento": {
                 "1": 150,
                 "2": 0,
@@ -79,15 +86,16 @@ alert(resultado);
             const diasAcimaDaMedia = valores.filter(valor => valor > mediaMensal).length;
 
             // Exibir resultados
-            console.log(Menor valor de faturamento: R$ ${menorValor});
-            console.log(Maior valor de faturamento: R$ ${maiorValor});
-            console.log(Número de dias acima da média mensal: ${diasAcimaDaMedia});
+            console.log(`Menor valor de faturamento: R$ ${menorValor}`);
+            console.log(`Maior valor de faturamento: R$ ${maiorValor}`);
+            console.log(`Número de dias acima da média mensal: ${diasAcimaDaMedia}`);
         }
 
         // Executar a função
         calcularFaturamento();
 
-4- const faturamento = {
+//4º
+const faturamento = {
     "SP": 67836.43,
     "RJ": 36678.66,
     "MG": 29229.88,
@@ -110,7 +118,8 @@ for (const estado in percentualRepresentacao) {
     console.log(`${estado}: ${percentualRepresentacao[estado]}`);
 }
 
-5- function inverterString(str) {
+//5º
+function inverterString(str) {
     let stringInvertida = '';
     for (let i = str.length - 1; i >= 0; i--) {
         stringInvertida += str[i];
